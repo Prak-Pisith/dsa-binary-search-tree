@@ -58,6 +58,18 @@ class BinarySearchTree {
     }
   }
 
+  // Search
+  search(target: number): TreeNode<number> | null {
+    let currentNode = this.root;
+    while (currentNode !== null) {
+      if (target === currentNode.value) return currentNode;
+
+      if (target < currentNode.value) currentNode = currentNode.left;
+      else currentNode = currentNode.right;
+    }
+    return null;
+  }
+
   // Print - In Order
   print(): void {
     this._print(this.root);
@@ -82,3 +94,6 @@ bst.insert(5);
 bst.insert(9);
 
 bst.print();
+
+const searchResult = bst.search(9);
+console.log('searchResult:', searchResult);
